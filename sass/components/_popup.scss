@@ -1,0 +1,77 @@
+.popup {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color-black, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      display: inline-block;
+      color: $color-grey;
+      position: absolute;
+      top: 1rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      line-height: 1;
+    }
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__content {
+    @include abscenter;
+    width: 75%;
+
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    border-radius: $default-border-radius;
+    display: table;
+    overflow: hidden;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.4s 0.2s;
+  }
+
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__left {
+    width: 33.333333%;
+    display: table-cell;
+  }
+
+  &__right {
+    width: 66.666666%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    column-count: 2; //自動將文字分成兩區塊
+    column-gap: 4rem; //兩區塊文字之間的間隙
+    column-rule: 1px solid $color-grey-2; //兩區塊之間的分隔線
+  }
+}
