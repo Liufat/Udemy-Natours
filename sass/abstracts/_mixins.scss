@@ -26,6 +26,8 @@
 // -tab-land
 // -big-desktop
 
+// 順序：Base + typography > general layout + grid > page layout > components
+
 // 1em - 16px
 
 @mixin respond($breakpoint) {
