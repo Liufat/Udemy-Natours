@@ -174,7 +174,7 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and(hover:none) {//識別裝置無法被hover(例如ipad等)
     height: auto;
     border-radius: $default-border-radius;
     background-color: $color-white;
