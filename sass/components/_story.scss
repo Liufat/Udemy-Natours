@@ -25,10 +25,18 @@
     height: 15rem;
     // background-color: pink;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
+    overflow: hidden;
+    border-radius: 50%;
 
-    clip-path: circle(50% at 50% 50%);
+    @supports (shape-outside: circle(50% at 50% 50%)) or
+      (-webkit-shape-outside: circle(50% at 50% 50%)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+
     transform: skewX(12deg) translateX(-3rem);
 
     position: relative;
